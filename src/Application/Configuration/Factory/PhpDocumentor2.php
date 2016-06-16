@@ -163,6 +163,15 @@ final class PhpDocumentor2 implements Strategy
             return $this->visibility;
         }
 
+        if ((array) $phpDocumentor->parser->visibility === []) {
+            return $this->visibility;
+        }
+
+        // TODO: verify that this is the right test
+        if (is_array($phpDocumentor->parser->visibility)) {
+            return implode(',', $this->buildArrayFromNode($phpDocumentor->parser->visibility));
+        }
+        
         return (string) $phpDocumentor->parser->visibility;
     }
 
