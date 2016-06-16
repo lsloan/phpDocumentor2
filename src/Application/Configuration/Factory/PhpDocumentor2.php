@@ -163,6 +163,8 @@ final class PhpDocumentor2 implements Strategy
             return $this->visibility;
         }
 
+        // TODO: add unit tests for child node support
+        // TODO: verify that this is the right test
         if ((array) $phpDocumentor->parser->visibility === []) {
             return $this->visibility;
         }
